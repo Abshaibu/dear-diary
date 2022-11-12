@@ -1,0 +1,138 @@
+.App {
+  width: 90%;
+  margin: 0 auto;
+}
+
+button {
+  border-radius: 58px;
+  height: 52px;
+  font-family: inherit;
+  cursor: pointer;
+  display: inline-block;
+  transition: all 0.25s;
+  box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.1);
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  margin-bottom: 2rem;
+  width: 100%;
+  height: 90px;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  position: relative;
+  align-items: center;
+}
+
+nav .home--btn {
+  margin-top: 0;
+}
+
+.navbar--logo {
+  text-transform: uppercase;
+  font-size: 1.8rem;
+  color: #fff;
+}
+
+.home--btn {
+  border-radius: 58px;
+  border: 1px solid transparent;
+  padding: .6rem 0;
+  width: 140px;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  color: #15192e;
+  text-transform: capitalize;
+  font-family: inherit;
+  background-color: aqua;
+}
+
+.home--btn_user {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  background: none;
+  text-transform: capitalize;
+  font-family: inherit;
+  color: #FFF;
+  border: none;
+  outline: none;
+  font-size: 1.3rem;
+  font-weight: 600;
+  position: relative;
+}
+
+.home--btn_user:focus,
+.home--btn_user:focus-visible {
+  outline: none;
+}
+
+.home--btn_user:hover .user--img {
+  border: 2px solid #535bf2;
+}
+
+.form--error {
+  color: #f97878;
+  display: block;
+  text-align: left;
+  padding-left: 1rem;
+}
+
+.navbar--btn {
+  background: #fff;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  margin-top: 5rem;
+}
+
+.dot {
+  color: aqua;
+}
+
+.home--texts {
+  max-width: 700px;
+  width: 100%;
+  text-align: center;
+}
+
+svg.spinner, .spinner--two {
+  margin-right: 0 !important;
+  color: #15192e !important;
+  right: 0 !important;
+  top: 0 !important;
+  display: inline-block;
+  position: relative !important;
+  animation: spin 1s linear infinite;
+}
+
+svg.spinner--two {
+  color: #fff !important;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
