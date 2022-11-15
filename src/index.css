@@ -491,6 +491,20 @@ input[type="file"] {
   border-radius: 50%;
 }
 
+.error-top svg {
+  top: 35%;
+}
+
+@media screen and (max-width: 425px) {
+  .top svg {
+    top: 25%;
+  }
+
+  .error-top svg {
+    top: 35%;
+  }
+}
+
 @media screen and (max-width: 459px) {
   .modal-wrapper {
     width: 350px;

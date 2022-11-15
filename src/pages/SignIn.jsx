@@ -11,6 +11,7 @@ export default function SignIn() {
     const [showPassword, setShowPassword] = useState(false);
     const [showLoader, setShowLoader] = useState(false);
     const navigate = useNavigate();
+    const [error, setError] = useState(false);
 
     //Submit form
     const formik = useFormik({
@@ -38,9 +39,19 @@ export default function SignIn() {
                     setShowLoader(false)
                     navigate("/my-diary")
                 }, 3000)
+            } else {
+                setShowLoader(true)
+                setTimeout(() => {
+                    setShowLoader(false)
+                    setError(true)
+                }, 3000)
             }
         }
     })
+
+    function handleFocus () {
+        setError(false)
+    }
 
 
     return (
@@ -68,6 +79,7 @@ export default function SignIn() {
                             <input
                                 onBlur={formik.handleBlur}
                                 onChange={formik.handleChange}
+                                onFocus={handleFocus}
                                 value={formik.values.email}
                                 type="email"
                                 name="email"
@@ -78,10 +90,12 @@ export default function SignIn() {
                                     {formik.touched.email && formik.errors.email ? formik.errors.email : ''}
                                 </span>
                         </div>
-                        <div className={`form--input ${formik.touched.password && formik.errors.password ? 'top' : ''}`}>
+                        <div className={`form--input ${formik.touched.password && formik.errors.password ? 'top' : ''}
+                        ${error ? 'error-top' : ''}`}>
                             <input
                                 onBlur={formik.handleBlur}
                                 onChange={formik.handleChange}
+                                onFocus={handleFocus}
                                 value={formik.values.password}
                                 type={showPassword ? "text" : "password"}
                                 name="password"
@@ -91,7 +105,8 @@ export default function SignIn() {
                             {showPassword ? <FiEyeOff onClick={() => setShowPassword(false)}/> :
                                 <FiEye onClick={() => setShowPassword(true)}/>}
                             <span className="form--error">
-                                    {formik.touched.password && formik.errors.password ? formik.errors.password : ''}
+                                 {error ? 'Incorrect email or password' : ''}
+                                {formik.touched.password && formik.errors.password ? formik.errors.password : ''}
                                 </span>
                         </div>
                         <Link
